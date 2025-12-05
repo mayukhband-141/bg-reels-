@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Reels Always-Play + Controls",
+  "version": "1.2",
+  "description": "Keep Instagram Reels playing in background and control via popup (works on background tabs).",
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": [
+    "*://www.instagram.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.instagram.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
